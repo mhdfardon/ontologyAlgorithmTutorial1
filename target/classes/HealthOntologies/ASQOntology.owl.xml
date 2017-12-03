@@ -1,0 +1,1794 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:j.0="http://purl.org/vocommons/voaf#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns="http://www.owl-ontologies.com/Ontology1366456074.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+    xmlns:vann="http://purl.org/vocab/vann/"	
+	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"	
+    xmlns:cc="http://creativecommons.org/ns#"	
+    xml:base="http://www.iutbayonne.univ-pau.fr/~roose/ontologies/ASQOntology.owl">
+<j.0:Vocabulary rdf:about="">
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    > An ontology to describe various semantic context types and semantic multimedia adaptation process and multimedia documents</rdfs:comment>
+</j.0:Vocabulary>
+<dcterms:creator>
+  			<foaf:Person rdf:about="alti.adel@univ-setif.dz">
+   			<foaf:name>Adel ALTI</foaf:name>
+  			</foaf:Person>
+</dcterms:creator>
+<dcterms:creator>
+  			<foaf:Person rdf:about="Sebastien.Laborie@iutbayonne.univ-pau.fr">
+   			<foaf:name>Sebastien LABORIE</foaf:name>
+  			</foaf:Person>
+</dcterms:creator>
+<dcterms:creator>
+  			<foaf:Person rdf:about="Philippe.Roose@iutbayonne.univ-pau.fr">
+   			<foaf:name>Philippe ROOSE</foaf:name>
+  			</foaf:Person>
+</dcterms:creator>  
+<dc:contributor>
+  			<foaf:Person rdf:about="mailto:gyrard@eurecom.fr">
+   			<foaf:name>Amelie Gyrard</foaf:name>
+  			</foaf:Person>
+</dc:contributor>  
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-0-04</dcterms:issued> 
+<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-06-07</dcterms:modified> 
+<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
+<vs:term_status>Finished</vs:term_status>
+<cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/> 
+<vann:preferredNamespacePrefix>ASQ</vann:preferredNamespacePrefix> 
+<vann:preferredNamespaceUri>http://www.iutbayonne.univ-pau.fr/~roose/ontologies#</vann:preferredNamespaceUri>
+<owl:Class rdf:ID="SelectPath">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AdaptationPath"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Context"/>
+  <owl:Class rdf:ID="Profil_Diff"/>
+  <owl:Class rdf:ID="Adaptation_Service">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Service"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Device">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Hardware"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Profil_Difference">
+    <rdfs:subClassOf rdf:resource="#Profil_Diff"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Technical_Adaptation">
+    <rdfs:subClassOf rdf:resource="#Adaptation_Service"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Cost">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="QoS_Parameters"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AdaptationPath">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Semantic_Process"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Transmoding_Adaptation">
+    <rdfs:subClassOf rdf:resource="#Technical_Adaptation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Transforming_Adaptation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Semantic_Adaptation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Hardware">
+    <rdfs:subClassOf rdf:resource="#Context"/>
+  </owl:Class>
+  <owl:Class rdf:ID="User">
+    <rdfs:subClassOf rdf:resource="#Context"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Transfer_Time">
+    <rdfs:subClassOf rdf:resource="#Cost"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Image">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Media"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Transcoding_Adaptation">
+    <rdfs:subClassOf rdf:resource="#Technical_Adaptation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adaptation_Quality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Benefice"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Benefice">
+    <rdfs:subClassOf rdf:resource="#QoS_Parameters"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Profil"/>
+  <owl:Class rdf:about="#Semantic_Adaptation">
+    <rdfs:subClassOf rdf:resource="#Adaptation_Service"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Media">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Document"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Preference">
+    <rdfs:subClassOf rdf:resource="#User"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adaptation_Services_Set">
+    <rdfs:subClassOf rdf:resource="#Semantic_Process"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Video">
+    <rdfs:subClassOf rdf:resource="#Media"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adaptation_Time">
+    <rdfs:subClassOf rdf:resource="#Cost"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Text">
+    <rdfs:subClassOf rdf:resource="#Media"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Screen">
+    <rdfs:subClassOf rdf:resource="#Hardware"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Audio">
+    <rdfs:subClassOf rdf:resource="#Media"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Document">
+    <rdfs:subClassOf rdf:resource="#Context"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Transfert_Communication">
+    <rdfs:subClassOf rdf:resource="#Adaptation_Service"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Operation"/>
+  <owl:ObjectProperty rdf:ID="QoS_Has_Context">
+    <rdfs:range rdf:resource="#Context"/>
+    <rdfs:domain rdf:resource="#QoS_Parameters"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Has_Predecessor">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="#Service"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Profil_Context">
+    <rdfs:range rdf:resource="#Context"/>
+    <rdfs:domain rdf:resource="#Profil"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Has_Successor">
+    <rdfs:range rdf:resource="#Service"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Has_Parametre_Out">
+    <rdfs:domain rdf:resource="#Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Has_Set_Of_Operation">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="#Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Compose_Of_Service">
+    <rdfs:range rdf:resource="#Service"/>
+    <rdfs:domain rdf:resource="#Adaptation_Services_Set"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Context_Service">
+    <rdfs:range rdf:resource="#Service"/>
+    <rdfs:domain rdf:resource="#Context"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Has_Parametre_In">
+    <rdfs:domain rdf:resource="#Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Compose_Of_Service1">
+    <rdfs:domain rdf:resource="#AdaptationPath"/>
+    <rdfs:range rdf:resource="#Service"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Has_QoS">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="#QoS_Parameters"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="Has_PathNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Action_Type">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Profil_Difference"/>
+          <owl:Class rdf:about="#Service"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Transmoding</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Resizing</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Translation</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >Accepter tous</rdf:first>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Arreter video</rdf:first>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >Reducing Sound</rdf:first>
+                </rdf:rest>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Transcoding</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Device_Type">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Tablette</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >SmartPhone</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >NetBook</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Device"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Service_Name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="QoS_Logical_Value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#QoS_Parameters"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Image_Color_Number">
+    <rdfs:domain rdf:resource="#Image"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Image_Height">
+    <rdfs:domain rdf:resource="#Image"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Video_Resolution">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Video"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Image_Resolution">
+    <rdfs:domain rdf:resource="#Image"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Video_Title">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Video"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Text_Color">
+    <rdfs:domain rdf:resource="#Text"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Black</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Pink</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Red</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Video_Color">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Video"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Has_Type">
+    <rdfs:domain rdf:resource="#Media"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Text</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Image</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Audio</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Video</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="QoS_Value">
+    <rdfs:domain rdf:resource="#QoS_Parameters"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Has_Result">
+    <rdfs:domain rdf:resource="#Operation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Has_Step">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Passe</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Start</rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Finish</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Current</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Profil_URI">
+    <rdfs:domain rdf:resource="#Profil"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Has_Format">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >MP4</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >BMP</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >WAV</rdf:first>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >PDF</rdf:first>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >TXT</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MP3</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Media"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Image_Width">
+    <rdfs:domain rdf:resource="#Image"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="User_Location">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Home</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Office</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Car</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#User"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Multimedia_Content">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Step">
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Audio_Size">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Audio"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Context_Category">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Screen</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Audio</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Text</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Image</rdf:first>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >Video</rdf:first>
+                </rdf:rest>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Device</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Context"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="User_Age">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Image_Size">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Image"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Id_Service">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Length">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Service_City">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Text_Font">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Arial</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Arial Black</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Time New Roman</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Text"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Has_Version">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Profil_Name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Profil"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="User_Adress">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#User"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="User_Email">
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="User_Language">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Français</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Anglais</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Preference"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Audio_Frequency">
+    <rdfs:domain rdf:resource="#Audio"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Text_Allignement">
+    <rdfs:domain rdf:resource="#Text"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Justify</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Center</rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Right</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Left</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OperationName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Operation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Screen_Resolution">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >600*800</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >1024*768</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Screen"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="Path_Id">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#AdaptationPath"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Path_Benefice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#AdaptationPath"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Path_Cost">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AdaptationPath"/>
+  </owl:FunctionalProperty>
+  <Profil rdf:ID="Profil_C_PDF">
+    <User_Language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Français</User_Language>
+    <Profil_Context>
+      <Image rdf:ID="Document_Image_PDF">
+        <Image_Height rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >400</Image_Height>
+        <Has_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Image</Has_Type>
+        <Context_Category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Image</Context_Category>
+        <Has_Format rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >PDF</Has_Format>
+        <Context_Service>
+          <Service rdf:ID="Service_User">
+            <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</Has_PathNumber>
+            <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >5</Length>
+            <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >4</Has_PathNumber>
+            <Has_Predecessor>
+              <Transcoding_Adaptation rdf:ID="ImageBMPtoImagePDF">
+                <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Finish</Has_Step>
+                <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Current</Has_Step>
+                <Has_Successor rdf:resource="#Service_User"/>
+                <Action_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Transcoding</Action_Type>
+                <Has_Predecessor>
+                  <Transmoding_Adaptation rdf:ID="AudioWAV_To_ImageBMP">
+                    <Has_QoS>
+                      <Adaptation_Time rdf:ID="Adaptation_Time_Low">
+                        <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >6.0</QoS_Value>
+                      </Adaptation_Time>
+                    </Has_QoS>
+                    <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >4</Length>
+                    <Has_Successor rdf:resource="#ImageBMPtoImagePDF"/>
+                    <Has_QoS>
+                      <Cost rdf:ID="Cost_6">
+                        <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >4.5</QoS_Value>
+                        <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >0.0</QoS_Value>
+                      </Cost>
+                    </Has_QoS>
+                    <Has_QoS>
+                      <Transfer_Time rdf:ID="Transfer_Time_Very_Low">
+                        <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >3.0</QoS_Value>
+                      </Transfer_Time>
+                    </Has_QoS>
+                    <Has_Predecessor>
+                      <Transcoding_Adaptation rdf:ID="AudioMP3toAudioWAV">
+                        <Has_QoS>
+                          <Cost rdf:ID="Cost_3">
+                            <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >8.0</QoS_Value>
+                            <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.0</QoS_Value>
+                          </Cost>
+                        </Has_QoS>
+                        <Has_QoS>
+                          <Benefice rdf:ID="Benefice_5">
+                            <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >15.0</QoS_Value>
+                          </Benefice>
+                        </Has_QoS>
+                        <Has_Set_Of_Operation>
+                          <Operation rdf:ID="Transcoding_AudioMP3_AudioWAV">
+                            <Has_Parametre_Out>
+                              <Audio rdf:ID="Document_Audio_WAV">
+                                <Has_Format rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >WAV</Has_Format>
+                                <Context_Service>
+                                  <Service rdf:ID="Service_Document">
+                                    <Has_Successor>
+                                      <Transmoding_Adaptation rdf:ID="VideoMP4_To_TextTXT">
+                                        <Has_Step rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Passe</Has_Step>
+                                        <Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                        >1</Step>
+                                        <Has_QoS>
+                                          <Transfer_Time rdf:ID="Transfer_Time_High">
+                                            <QoS_Value rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#float"
+                                            >14.0</QoS_Value>
+                                          </Transfer_Time>
+                                        </Has_QoS>
+                                        <Service_Name rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >a</Service_Name>
+                                        <Has_Set_Of_Operation>
+                                          <Operation rdf:ID="Tansmoding_VideoMP4_TextTXT">
+                                            <Has_Parametre_Out>
+                                              <Text rdf:ID="Document_Text_TXT">
+                                                <Has_Format rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >TXT</Has_Format>
+                                                <Has_Type rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Text</Has_Type>
+                                                <Context_Service rdf:resource="#Service_Document"/>
+                                              </Text>
+                                            </Has_Parametre_Out>
+                                            <Has_Parametre_In>
+                                              <Video rdf:ID="Document_Video_MP4">
+                                                <Context_Service rdf:resource="#Service_Document"/>
+                                                <Has_Type rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Video</Has_Type>
+                                                <Has_Format rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >MP4</Has_Format>
+                                                <Context_Category
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Video</Context_Category>
+                                              </Video>
+                                            </Has_Parametre_In>
+                                          </Operation>
+                                        </Has_Set_Of_Operation>
+                                        <Has_Step rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Current</Has_Step>
+                                        <Has_QoS>
+                                          <Adaptation_Quality rdf:ID="Adaptation_Quality_Low">
+                                            <QoS_Value rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#float"
+                                            >7.0</QoS_Value>
+                                          </Adaptation_Quality>
+                                        </Has_QoS>
+                                        <Action_Type rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Transmoding</Action_Type>
+                                        <Has_Successor>
+                                          <Transmoding_Adaptation rdf:ID="TextTXT_To_ImagePDF">
+                                            <Service_City rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            ></Service_City>
+                                            <Has_QoS>
+                                              <Adaptation_Quality rdf:ID="Adaptation_Quality_High">
+                                                <QoS_Value rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >15.0</QoS_Value>
+                                                <owl:equivalentProperty rdf:resource="http://www.w3.org/2002/07/owl#allValuesFrom"/>
+                                              </Adaptation_Quality>
+                                            </Has_QoS>
+                                            <Has_Predecessor rdf:resource="#VideoMP4_To_TextTXT"/>
+                                            <Length rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >3</Length>
+                                            <Action_Type rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Transmoding</Action_Type>
+                                            <Has_Step rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Current</Has_Step>
+                                            <Length rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >5</Length>
+                                            <Has_Predecessor>
+                                              <Transmoding_Adaptation rdf:ID="AudioWAV_To_TextTXT">
+                                                <Has_Predecessor rdf:resource="#AudioMP3toAudioWAV"/>
+                                                <Has_QoS>
+                                                  <Benefice rdf:ID="Benefice_17">
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >7.0</QoS_Value>
+                                                  </Benefice>
+                                                </Has_QoS>
+                                                <Has_QoS>
+                                                  <Transfer_Time rdf:ID="Transfer_Time_Medium">
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >10.0</QoS_Value>
+                                                  </Transfer_Time>
+                                                </Has_QoS>
+                                                <Has_Step rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Passe</Has_Step>
+                                                <Has_QoS rdf:resource="#Adaptation_Quality_Low"/>
+                                                <Has_Set_Of_Operation>
+                                                  <Operation rdf:ID="Transmoding_AudioWav_TextTXT">
+                                                    <Has_Parametre_In rdf:resource="#Document_Audio_WAV"/>
+                                                    <Has_Parametre_Out rdf:resource="#Document_Text_TXT"/>
+                                                  </Operation>
+                                                </Has_Set_Of_Operation>
+                                                <Has_QoS>
+                                                  <Adaptation_Time rdf:ID="Adaptation_Time_Medium">
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >8.0</QoS_Value>
+                                                  </Adaptation_Time>
+                                                </Has_QoS>
+                                                <Has_PathNumber
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >3</Has_PathNumber>
+                                                <Has_Step rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Current</Has_Step>
+                                                <Action_Type rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Transmoding</Action_Type>
+                                                <Service_Name
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >d</Service_Name>
+                                                <Has_Successor rdf:resource="#TextTXT_To_ImagePDF"/>
+                                                <Length rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >4</Length>
+                                                <Has_QoS>
+                                                  <Cost rdf:ID="Cost_9">
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >9.0</QoS_Value>
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >0.0</QoS_Value>
+                                                  </Cost>
+                                                </Has_QoS>
+                                              </Transmoding_Adaptation>
+                                            </Has_Predecessor>
+                                            <Has_PathNumber rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >1</Has_PathNumber>
+                                            <Has_QoS rdf:resource="#Adaptation_Time_Low"/>
+                                            <Has_Step rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Finish</Has_Step>
+                                            <Length rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >4</Length>
+                                            <Has_QoS>
+                                              <Benefice rdf:ID="Benefice_14">
+                                                <QoS_Value rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >15.0</QoS_Value>
+                                              </Benefice>
+                                            </Has_QoS>
+                                            <Has_Successor rdf:resource="#Service_User"/>
+                                            <Service_Name rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >c</Service_Name>
+                                            <Has_QoS>
+                                              <Transfer_Time rdf:ID="Transfer_Time_Low">
+                                                <QoS_Value rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >7.0</QoS_Value>
+                                              </Transfer_Time>
+                                            </Has_QoS>
+                                            <Has_PathNumber rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >2</Has_PathNumber>
+                                            <Has_PathNumber rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#int"
+                                            >3</Has_PathNumber>
+                                            <Has_QoS>
+                                              <Cost rdf:ID="Cost_12">
+                                                <QoS_Value rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >6.5</QoS_Value>
+                                                <QoS_Value rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#float"
+                                                >0.0</QoS_Value>
+                                              </Cost>
+                                            </Has_QoS>
+                                            <Has_Predecessor>
+                                              <Transmoding_Adaptation rdf:ID="AudioMP3_To_TextTXT">
+                                                <Has_Step rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Passe</Has_Step>
+                                                <Has_QoS>
+                                                  <Benefice rdf:ID="Benefice_3">
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >7.0</QoS_Value>
+                                                  </Benefice>
+                                                </Has_QoS>
+                                                <Length rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >3</Length>
+                                                <Has_QoS rdf:resource="#Adaptation_Time_Medium"/>
+                                                <Has_QoS rdf:resource="#Adaptation_Quality_Low"/>
+                                                <Has_PathNumber
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#int"
+                                                >2</Has_PathNumber>
+                                                <Has_Set_Of_Operation>
+                                                  <Operation rdf:ID="Transmoding_AudioMP3_TextTXT">
+                                                    <Has_Parametre_In>
+                                                      <Audio rdf:ID="Document_Audio_MP3">
+                                                        <Has_Format
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >MP3</Has_Format>
+                                                        <Context_Service rdf:resource="#Service_Document"/>
+                                                        <Has_Type
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >Audio</Has_Type>
+                                                      </Audio>
+                                                    </Has_Parametre_In>
+                                                    <Has_Parametre_Out rdf:resource="#Document_Text_TXT"/>
+                                                  </Operation>
+                                                </Has_Set_Of_Operation>
+                                                <Has_QoS rdf:resource="#Transfer_Time_Medium"/>
+                                                <Has_Step rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Current</Has_Step>
+                                                <Has_Successor rdf:resource="#TextTXT_To_ImagePDF"/>
+                                                <Service_Name
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >f</Service_Name>
+                                                <Action_Type rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Transmoding</Action_Type>
+                                                <Has_Predecessor>
+                                                  <Transmoding_Adaptation rdf:ID="VideoMP4_To_AudioMP3">
+                                                    <Has_Step
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Passe</Has_Step>
+                                                    <Action_Type
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Transmoding</Action_Type>
+                                                    <Has_PathNumber
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >2</Has_PathNumber>
+                                                    <Has_QoS>
+                                                      <Adaptation_Time rdf:ID="Adaptation_Time_Very_Low">
+                                                        <QoS_Value
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#float"
+                                                        >2.0</QoS_Value>
+                                                      </Adaptation_Time>
+                                                    </Has_QoS>
+                                                    <Length rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >2</Length>
+                                                    <Has_QoS>
+                                                      <Cost rdf:ID="Cost_15">
+                                                        <QoS_Value
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#float"
+                                                        >2.5</QoS_Value>
+                                                        <QoS_Value
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#float"
+                                                        >0.0</QoS_Value>
+                                                      </Cost>
+                                                    </Has_QoS>
+                                                    <Has_QoS rdf:resource="#Transfer_Time_Very_Low"/>
+                                                    <Has_PathNumber
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >3</Has_PathNumber>
+                                                    <Has_Predecessor rdf:resource="#Service_Document"/>
+                                                    <Service_Name
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >b</Service_Name>
+                                                    <Has_Successor rdf:resource="#AudioMP3toAudioWAV"/>
+                                                    <Has_Successor rdf:resource="#AudioMP3_To_TextTXT"/>
+                                                    <Has_Set_Of_Operation>
+                                                      <Operation rdf:ID="Transmoding_VideoMP4_AudioMP3">
+                                                        <Has_Parametre_Out rdf:resource="#Document_Audio_MP3"/>
+                                                        <Has_Parametre_In rdf:resource="#Document_Video_MP4"/>
+                                                      </Operation>
+                                                    </Has_Set_Of_Operation>
+                                                    <Has_PathNumber
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#int"
+                                                    >4</Has_PathNumber>
+                                                    <Has_QoS>
+                                                      <Benefice rdf:ID="Benefice_11">
+                                                        <QoS_Value
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#float"
+                                                        >15.0</QoS_Value>
+                                                      </Benefice>
+                                                    </Has_QoS>
+                                                    <Step rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >1</Step>
+                                                    <Has_QoS rdf:resource="#Adaptation_Quality_High"/>
+                                                    <Has_Step
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Current</Has_Step>
+                                                  </Transmoding_Adaptation>
+                                                </Has_Predecessor>
+                                                <Has_QoS>
+                                                  <Cost rdf:ID="Cost_2">
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >9.0</QoS_Value>
+                                                    <QoS_Value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >0.0</QoS_Value>
+                                                  </Cost>
+                                                </Has_QoS>
+                                              </Transmoding_Adaptation>
+                                            </Has_Predecessor>
+                                            <Has_Set_Of_Operation>
+                                              <Operation rdf:ID="Transmoding_TextTXT_ImagePDF">
+                                                <Has_Parametre_Out rdf:resource="#Document_Image_PDF"/>
+                                                <Has_Parametre_In rdf:resource="#Document_Text_TXT"/>
+                                              </Operation>
+                                            </Has_Set_Of_Operation>
+                                          </Transmoding_Adaptation>
+                                        </Has_Successor>
+                                        <Length rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        >2</Length>
+                                        <Has_Predecessor rdf:resource="#Service_Document"/>
+                                        <Has_QoS>
+                                          <Adaptation_Time rdf:ID="Adaptation_Time_High">
+                                            <QoS_Value rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#float"
+                                            >12.0</QoS_Value>
+                                          </Adaptation_Time>
+                                        </Has_QoS>
+                                        <Has_PathNumber rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#int"
+                                        >1</Has_PathNumber>
+                                        <Has_QoS>
+                                          <Cost rdf:ID="Cost_18">
+                                            <QoS_Value rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#float"
+                                            >13.0</QoS_Value>
+                                            <QoS_Value rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#float"
+                                            >0.0</QoS_Value>
+                                          </Cost>
+                                        </Has_QoS>
+                                        <Has_QoS>
+                                          <Benefice rdf:ID="Benefice_1">
+                                            <QoS_Value rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#float"
+                                            >7.0</QoS_Value>
+                                          </Benefice>
+                                        </Has_QoS>
+                                      </Transmoding_Adaptation>
+                                    </Has_Successor>
+                                    <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >Start</Has_Step>
+                                    <Has_PathNumber rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >1</Has_PathNumber>
+                                    <Has_PathNumber rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >2</Has_PathNumber>
+                                    <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >Passe</Has_Step>
+                                    <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                    >1</Length>
+                                    <Has_Set_Of_Operation>
+                                      <Operation rdf:ID="Send_Video_MP4">
+                                        <Has_Parametre_Out rdf:resource="#Document_Video_MP4"/>
+                                      </Operation>
+                                    </Has_Set_Of_Operation>
+                                    <Service_Name rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Send Video</Service_Name>
+                                    <Has_PathNumber rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >3</Has_PathNumber>
+                                    <Has_PathNumber rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#int"
+                                    >4</Has_PathNumber>
+                                    <Has_Successor rdf:resource="#VideoMP4_To_AudioMP3"/>
+                                  </Service>
+                                </Context_Service>
+                                <Has_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Audio</Has_Type>
+                              </Audio>
+                            </Has_Parametre_Out>
+                            <Has_Parametre_In rdf:resource="#Document_Audio_MP3"/>
+                          </Operation>
+                        </Has_Set_Of_Operation>
+                        <Service_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >h</Service_Name>
+                        <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Current</Has_Step>
+                        <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Passe</Has_Step>
+                        <Has_QoS rdf:resource="#Adaptation_Time_Low"/>
+                        <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >4</Has_PathNumber>
+                        <Has_QoS rdf:resource="#Adaptation_Quality_High"/>
+                        <Action_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Transcoding</Action_Type>
+                        <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >3</Length>
+                        <Has_Predecessor rdf:resource="#VideoMP4_To_AudioMP3"/>
+                        <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >3</Has_PathNumber>
+                        <Has_Successor rdf:resource="#AudioWAV_To_TextTXT"/>
+                        <Has_QoS rdf:resource="#Transfer_Time_Medium"/>
+                        <Has_Successor rdf:resource="#AudioWAV_To_ImageBMP"/>
+                      </Transcoding_Adaptation>
+                    </Has_Predecessor>
+                    <Has_QoS>
+                      <Benefice rdf:ID="Benefice_20">
+                        <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >10.0</QoS_Value>
+                      </Benefice>
+                    </Has_QoS>
+                    <Service_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >e</Service_Name>
+                    <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Passe</Has_Step>
+                    <Has_QoS>
+                      <Adaptation_Quality rdf:ID="Adaptation_Quality_Medium">
+                        <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >10.0</QoS_Value>
+                      </Adaptation_Quality>
+                    </Has_QoS>
+                    <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Current</Has_Step>
+                    <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >4</Has_PathNumber>
+                    <Action_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Transmoding</Action_Type>
+                    <Has_Set_Of_Operation>
+                      <Operation rdf:ID="Transmoding_AudioWAV_ImageBMP">
+                        <Has_Parametre_In rdf:resource="#Document_Audio_WAV"/>
+                        <Has_Parametre_Out>
+                          <Image rdf:ID="Document_Image_BMP">
+                            <Has_Format rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >BMP</Has_Format>
+                            <Has_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Image</Has_Type>
+                            <Image_Resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >400*600</Image_Resolution>
+                          </Image>
+                        </Has_Parametre_Out>
+                      </Operation>
+                    </Has_Set_Of_Operation>
+                  </Transmoding_Adaptation>
+                </Has_Predecessor>
+                <Service_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >g</Service_Name>
+                <Has_QoS rdf:resource="#Adaptation_Quality_High"/>
+                <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >4</Has_PathNumber>
+                <Has_QoS rdf:resource="#Adaptation_Time_Very_Low"/>
+                <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >5</Length>
+                <Has_QoS>
+                  <Cost rdf:ID="Cost_21">
+                    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >2.5</QoS_Value>
+                    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >0.0</QoS_Value>
+                  </Cost>
+                </Has_QoS>
+                <Has_QoS>
+                  <Benefice rdf:ID="Benefice_8">
+                    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >15.0</QoS_Value>
+                  </Benefice>
+                </Has_QoS>
+                <Has_Set_Of_Operation>
+                  <Operation rdf:ID="Transcoding_ImageBMP_ImagePDF">
+                    <Has_Parametre_Out rdf:resource="#Document_Image_PDF"/>
+                    <Has_Parametre_In rdf:resource="#Document_Image_BMP"/>
+                  </Operation>
+                </Has_Set_Of_Operation>
+                <Has_QoS rdf:resource="#Transfer_Time_Very_Low"/>
+              </Transcoding_Adaptation>
+            </Has_Predecessor>
+            <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >6</Length>
+            <Has_Predecessor rdf:resource="#TextTXT_To_ImagePDF"/>
+            <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</Has_PathNumber>
+            <Has_Set_Of_Operation>
+              <Operation rdf:ID="Receive_Image_PDF">
+                <Has_Parametre_In rdf:resource="#Document_Image_PDF"/>
+              </Operation>
+            </Has_Set_Of_Operation>
+            <Has_PathNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</Has_PathNumber>
+            <Service_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >receive Image</Service_Name>
+            <Length rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >4</Length>
+            <Has_Step rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Finish</Has_Step>
+          </Service>
+        </Context_Service>
+        <Image_Width rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >600</Image_Width>
+        <Image_Resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >400*600</Image_Resolution>
+      </Image>
+    </Profil_Context>
+    <Profil_Context>
+      <Device rdf:ID="Device_1">
+        <Device_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tablette</Device_Type>
+      </Device>
+    </Profil_Context>
+    <Profil_Context>
+      <Preference rdf:ID="Preference_1">
+        <User_Language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Français</User_Language>
+        <User_Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >23</User_Age>
+        <User_Location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Car</User_Location>
+        <Context_Service rdf:resource="#Service_User"/>
+      </Preference>
+    </Profil_Context>
+    <Profil_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Profil1</Profil_Name>
+  </Profil>
+  <swrl:Variable rdf:ID="val"/>
+  <Adaptation_Services_Set rdf:ID="Composite_Semantic_Process_1">
+    <Compose_Of_Service rdf:resource="#AudioWAV_To_ImageBMP"/>
+    <Compose_Of_Service rdf:resource="#VideoMP4_To_TextTXT"/>
+    <Compose_Of_Service rdf:resource="#AudioWAV_To_TextTXT"/>
+    <Compose_Of_Service rdf:resource="#Service_User"/>
+    <Compose_Of_Service rdf:resource="#Service_Document"/>
+    <Compose_Of_Service rdf:resource="#AudioMP3_To_TextTXT"/>
+    <Compose_Of_Service rdf:resource="#AudioMP3toAudioWAV"/>
+    <Compose_Of_Service rdf:resource="#TextTXT_To_ImagePDF"/>
+    <Compose_Of_Service rdf:resource="#ImageBMPtoImagePDF"/>
+    <Compose_Of_Service rdf:resource="#VideoMP4_To_AudioMP3"/>
+  </Adaptation_Services_Set>
+  <swrl:Variable rdf:ID="type_in1"/>
+  <swrl:Variable rdf:ID="b1"/>
+  <swrl:Variable rdf:ID="loc"/>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Arial Black</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Time New Roman</rdf:first>
+        </rdf:rest>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Arial</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <AdaptationPath rdf:ID="Path_1">
+    <Compose_Of_Service1 rdf:resource="#VideoMP4_To_TextTXT"/>
+    <Path_Benefice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >22.0</Path_Benefice>
+    <Compose_Of_Service1 rdf:resource="#TextTXT_To_ImagePDF"/>
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >16.0</QoS_Value>
+    <Compose_Of_Service1 rdf:resource="#Service_User"/>
+    <Path_Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</Path_Id>
+    <Path_Cost rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >19.5</Path_Cost>
+    <Compose_Of_Service1 rdf:resource="#Service_Document"/>
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >13.0</QoS_Value>
+  </AdaptationPath>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Adaptation_Quality</rdf:first>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Cost_Transfert_Time</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <swrl:Variable rdf:ID="max1"/>
+  <Profil_Diff rdf:ID="Profil_Diff_1"/>
+  <swrl:Variable rdf:ID="format_in1"/>
+  <Preference rdf:ID="Preference_4">
+    <User_Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >30</User_Age>
+    <User_Location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Office</User_Location>
+    <User_Language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anglais</User_Language>
+  </Preference>
+  <swrl:Variable rdf:ID="format1"/>
+  <swrl:Variable rdf:ID="n3"/>
+  <swrl:Variable rdf:ID="formatin2"/>
+  <swrl:Variable rdf:ID="format_out1"/>
+  <swrl:Variable rdf:ID="informe"/>
+  <swrl:Variable rdf:ID="formatout2"/>
+  <swrl:Variable rdf:ID="type4"/>
+  <swrl:Variable rdf:ID="typeout2"/>
+  <swrl:Variable rdf:ID="div"/>
+  <Transforming_Adaptation rdf:ID="Transforming_Adaptation_7">
+    <Action_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Translation</Action_Type>
+  </Transforming_Adaptation>
+  <swrl:Variable rdf:ID="b"/>
+  <AdaptationPath rdf:ID="Path_3">
+    <Compose_Of_Service1 rdf:resource="#AudioWAV_To_TextTXT"/>
+    <Compose_Of_Service1 rdf:resource="#TextTXT_To_ImagePDF"/>
+    <Compose_Of_Service1 rdf:resource="#Service_Document"/>
+    <Compose_Of_Service1 rdf:resource="#Service_User"/>
+    <Path_Benefice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >52.0</Path_Benefice>
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >13.0</QoS_Value>
+    <Path_Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >3</Path_Id>
+    <Compose_Of_Service1 rdf:resource="#AudioMP3toAudioWAV"/>
+    <Compose_Of_Service1 rdf:resource="#VideoMP4_To_AudioMP3"/>
+    <Path_Cost rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >26.0</Path_Cost>
+  </AdaptationPath>
+  <swrl:Variable rdf:ID="o2"/>
+  <Transforming_Adaptation rdf:ID="Transforming_Adaptation_3">
+    <Action_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Resizing</Action_Type>
+    <Has_Set_Of_Operation>
+      <Operation rdf:ID="Transforming_ImagePDF_ImagePDF">
+        <Has_Result rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >600*800</Has_Result>
+        <OperationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></OperationName>
+        <Has_Parametre_In rdf:resource="#Document_Image_PDF"/>
+      </Operation>
+    </Has_Set_Of_Operation>
+  </Transforming_Adaptation>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Final</rdf:first>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Initial</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <swrl:AtomList/>
+  <swrl:Variable rdf:ID="sp1"/>
+  <swrl:Variable rdf:ID="id1"/>
+  <swrl:Variable rdf:ID="format_in"/>
+  <swrl:Variable rdf:ID="a"/>
+  <swrl:Variable rdf:ID="lg"/>
+  <swrl:Variable rdf:ID="format_out3"/>
+  <swrl:Variable rdf:ID="forme"/>
+  <swrl:Variable rdf:ID="formatin1"/>
+  <swrl:Variable rdf:ID="lg1"/>
+  <swrl:Variable rdf:ID="loc3"/>
+  <swrl:Variable rdf:ID="typein"/>
+  <Adaptation_Time rdf:ID="Adaptation_Time_Vey_High">
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >18.0</QoS_Value>
+  </Adaptation_Time>
+  <swrl:Variable rdf:ID="cost"/>
+  <swrl:Variable rdf:ID="tpout"/>
+  <swrl:Variable rdf:ID="resout"/>
+  <swrl:Variable rdf:ID="r"/>
+  <swrl:Variable rdf:ID="typeout3"/>
+  <Transfer_Time rdf:ID="Transfer_Time_Very_High">
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >20.0</QoS_Value>
+  </Transfer_Time>
+  <swrl:AtomList/>
+  <swrl:Variable rdf:ID="v6"/>
+  <swrl:Variable rdf:ID="formatin4"/>
+  <swrl:Variable rdf:ID="name2"/>
+  <swrl:Variable rdf:ID="res1"/>
+  <Profil_Difference rdf:ID="Profil_Difference_1"/>
+  <swrl:Variable rdf:ID="nom"/>
+  <swrl:Variable rdf:ID="type3"/>
+  <swrl:Variable rdf:ID="k"/>
+  <swrl:Variable rdf:ID="fr"/>
+  <SelectPath rdf:ID="SelectPath_7">
+    <Path_Benefice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >55.0</Path_Benefice>
+    <Path_Cost rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >17.5</Path_Cost>
+    <Path_Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</Path_Id>
+  </SelectPath>
+  <swrl:Variable rdf:ID="v5"/>
+  <swrl:Variable rdf:ID="max"/>
+  <swrl:Variable rdf:ID="n1"/>
+  <swrl:AtomList>
+    <rdf:rest>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#Has_QoS"/>
+            <swrl:argument2 rdf:resource="#qos3"/>
+            <swrl:argument1>
+              <swrl:Variable rdf:ID="s"/>
+            </swrl:argument1>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:argument1 rdf:resource="#s"/>
+                        <swrl:propertyPredicate rdf:resource="#Has_QoS"/>
+                        <swrl:argument2>
+                          <swrl:Variable rdf:ID="qos2"/>
+                        </swrl:argument2>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:ClassAtom>
+                            <swrl:argument1>
+                              <swrl:Variable rdf:ID="qos1"/>
+                            </swrl:argument1>
+                            <swrl:classPredicate rdf:resource="#Adaptation_Time"/>
+                          </swrl:ClassAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="#Transfer_Time"/>
+                                <swrl:argument1 rdf:resource="#qos2"/>
+                              </swrl:ClassAtom>
+                            </rdf:first>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:first>
+                                  <swrl:DatavaluedPropertyAtom>
+                                    <swrl:argument1 rdf:resource="#qos1"/>
+                                    <swrl:argument2>
+                                      <swrl:Variable rdf:ID="v1"/>
+                                    </swrl:argument2>
+                                    <swrl:propertyPredicate rdf:resource="#QoS_Value"/>
+                                  </swrl:DatavaluedPropertyAtom>
+                                </rdf:first>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:first>
+                                      <swrl:DatavaluedPropertyAtom>
+                                        <swrl:argument1 rdf:resource="#qos2"/>
+                                        <swrl:argument2>
+                                          <swrl:Variable rdf:ID="v2"/>
+                                        </swrl:argument2>
+                                        <swrl:propertyPredicate rdf:resource="#QoS_Value"/>
+                                      </swrl:DatavaluedPropertyAtom>
+                                    </rdf:first>
+                                    <rdf:rest>
+                                      <swrl:AtomList>
+                                        <rdf:first>
+                                          <swrl:BuiltinAtom>
+                                            <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+                                            <swrl:arguments>
+                                              <rdf:List>
+                                                <rdf:rest>
+                                                  <rdf:List>
+                                                    <rdf:rest>
+                                                      <rdf:List>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                        <rdf:first rdf:resource="#v2"/>
+                                                      </rdf:List>
+                                                    </rdf:rest>
+                                                    <rdf:first rdf:resource="#v1"/>
+                                                  </rdf:List>
+                                                </rdf:rest>
+                                                <rdf:first>
+                                                  <swrl:Variable rdf:ID="v"/>
+                                                </rdf:first>
+                                              </rdf:List>
+                                            </swrl:arguments>
+                                          </swrl:BuiltinAtom>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                          <swrl:AtomList>
+                                            <rdf:first>
+                                              <swrl:BuiltinAtom>
+                                                <swrl:arguments>
+                                                  <rdf:List>
+                                                    <rdf:rest>
+                                                      <rdf:List>
+                                                        <rdf:rest>
+                                                          <rdf:List>
+                                                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            <rdf:first
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#long"
+                                                            >2</rdf:first>
+                                                          </rdf:List>
+                                                        </rdf:rest>
+                                                        <rdf:first rdf:resource="#v"/>
+                                                      </rdf:List>
+                                                    </rdf:rest>
+                                                    <rdf:first>
+                                                      <swrl:Variable rdf:ID="v3"/>
+                                                    </rdf:first>
+                                                  </rdf:List>
+                                                </swrl:arguments>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#divide"/>
+                                              </swrl:BuiltinAtom>
+                                            </rdf:first>
+                                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                          </swrl:AtomList>
+                                        </rdf:rest>
+                                      </swrl:AtomList>
+                                    </rdf:rest>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                  </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument1 rdf:resource="#s"/>
+                    <swrl:argument2 rdf:resource="#qos1"/>
+                    <swrl:propertyPredicate rdf:resource="#Has_QoS"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1 rdf:resource="#qos3"/>
+                <swrl:classPredicate rdf:resource="#Cost"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </rdf:rest>
+    <rdf:first>
+      <swrl:ClassAtom>
+        <swrl:argument1 rdf:resource="#s"/>
+        <swrl:classPredicate rdf:resource="#Adaptation_Service"/>
+      </swrl:ClassAtom>
+    </rdf:first>
+  </swrl:AtomList>
+  <AdaptationPath rdf:ID="Path_2">
+    <Compose_Of_Service1 rdf:resource="#VideoMP4_To_AudioMP3"/>
+    <Path_Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</Path_Id>
+    <Compose_Of_Service1 rdf:resource="#Service_User"/>
+    <Compose_Of_Service1 rdf:resource="#AudioMP3_To_TextTXT"/>
+    <Compose_Of_Service1 rdf:resource="#Service_Document"/>
+    <Path_Cost rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >18.0</Path_Cost>
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >13.0</QoS_Value>
+    <Compose_Of_Service1 rdf:resource="#TextTXT_To_ImagePDF"/>
+    <Path_Benefice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >37.0</Path_Benefice>
+  </AdaptationPath>
+  <swrl:Variable rdf:ID="frme"/>
+  <Device rdf:ID="Device_6">
+    <Device_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NetBook</Device_Type>
+  </Device>
+  <swrl:Variable rdf:ID="name"/>
+  <swrl:Variable rdf:ID="n2"/>
+  <swrl:Variable rdf:ID="loc1"/>
+  <swrl:Variable rdf:ID="mg"/>
+  <swrl:Variable rdf:ID="pb"/>
+  <swrl:Variable rdf:ID="avg"/>
+  <swrl:Variable rdf:ID="type_out1"/>
+  <swrl:Variable rdf:ID="id2"/>
+  <Operation rdf:ID="Transforming_ImageBMP_ImageBMP">
+    <Has_Parametre_In rdf:resource="#Document_Image_BMP"/>
+  </Operation>
+  <swrl:AtomList>
+    <rdf:first>
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="#Adaptation_Services_Set"/>
+        <swrl:argument1>
+          <swrl:Variable rdf:ID="p"/>
+        </swrl:argument1>
+      </swrl:ClassAtom>
+    </rdf:first>
+    <rdf:rest>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:argument2>
+                  <swrl:Variable rdf:ID="s2"/>
+                </swrl:argument2>
+                <swrl:propertyPredicate rdf:resource="#Compose_Of_Service"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:argument1>
+                      <swrl:Variable rdf:ID="m"/>
+                    </swrl:argument1>
+                    <swrl:classPredicate rdf:resource="#Transmoding_Adaptation"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:ClassAtom>
+                        <swrl:argument1>
+                          <swrl:Variable rdf:ID="c"/>
+                        </swrl:argument1>
+                        <swrl:classPredicate rdf:resource="#Transcoding_Adaptation"/>
+                      </swrl:ClassAtom>
+                    </rdf:first>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument2 rdf:resource="#m"/>
+                            <swrl:argument1 rdf:resource="#p"/>
+                            <swrl:propertyPredicate rdf:resource="#Compose_Of_Service"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:argument2 rdf:resource="#c"/>
+                                <swrl:argument1 rdf:resource="#p"/>
+                                <swrl:propertyPredicate rdf:resource="#Compose_Of_Service"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#Compose_Of_Service"/>
+            <swrl:argument2>
+              <swrl:Variable rdf:ID="s1"/>
+            </swrl:argument2>
+            <swrl:argument1 rdf:resource="#p"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </rdf:rest>
+  </swrl:AtomList>
+  <swrl:Variable rdf:ID="type2"/>
+  <swrl:Variable rdf:ID="name1"/>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Working</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Praying</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Driving</rdf:first>
+          </rdf:rest>
+        </rdf:rest>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Studying</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <Screen rdf:ID="Screen_1">
+    <Screen_Resolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >600*800</Screen_Resolution>
+    <Context_Category rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Screen</Context_Category>
+    <Context_Service>
+      <Service rdf:ID="Service_Screen">
+        <Service_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ScreenSize</Service_Name>
+        <Has_Version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1.0</Has_Version>
+      </Service>
+    </Context_Service>
+  </Screen>
+  <swrl:Variable rdf:ID="formatin3"/>
+  <swrl:Variable rdf:ID="n"/>
+  <Profil rdf:ID="Profil_Serveur_MP4">
+    <Profil_Context rdf:resource="#Document_Video_MP4"/>
+    <Profil_Context>
+      <Preference rdf:ID="Preference_5">
+        <User_Age rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >35</User_Age>
+        <User_Location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Home</User_Location>
+        <User_Language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Français</User_Language>
+      </Preference>
+    </Profil_Context>
+    <Profil_Context>
+      <Device rdf:ID="Device_3">
+        <Device_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SmartPhone</Device_Type>
+      </Device>
+    </Profil_Context>
+    <Profil_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Profil2</Profil_Name>
+  </Profil>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Current</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Passe</rdf:first>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+  <swrl:Variable rdf:ID="sum"/>
+  <swrl:Variable rdf:ID="l"/>
+  <swrl:Variable rdf:ID="path"/>
+  <AdaptationPath rdf:ID="Path_4">
+    <Compose_Of_Service1 rdf:resource="#AudioMP3toAudioWAV"/>
+    <Compose_Of_Service1 rdf:resource="#Service_Document"/>
+    <Path_Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</Path_Id>
+    <Compose_Of_Service1 rdf:resource="#Service_User"/>
+    <Path_Benefice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >55.0</Path_Benefice>
+    <Compose_Of_Service1 rdf:resource="#AudioWAV_To_ImageBMP"/>
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >13.0</QoS_Value>
+    <Path_Cost rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >17.5</Path_Cost>
+    <Compose_Of_Service1 rdf:resource="#VideoMP4_To_AudioMP3"/>
+    <QoS_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >16.0</QoS_Value>
+    <Compose_Of_Service1 rdf:resource="#ImageBMPtoImagePDF"/>
+  </AdaptationPath>
+  <swrl:Variable rdf:ID="forme1"/>
+  <swrl:Variable rdf:ID="type_in"/>
+  <swrl:Variable rdf:ID="min"/>
+  <swrl:Variable rdf:ID="formatout1"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.6, Build 613)  http://protege.stanford.edu -->
+

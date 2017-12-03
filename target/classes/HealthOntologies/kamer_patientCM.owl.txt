@@ -1,0 +1,891 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/kamer/patient.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.owl-ontologies.com/kamer/patient.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/protege"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:ID="CurrentWeatherQuality"/>
+  <owl:Class rdf:ID="BiomedicalParameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PhysicalParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ActivityQuality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Quality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EnvironmentalParameter">
+    <rdfs:subClassOf rdf:resource="#PhysicalParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PhysicaLocationData"/>
+  <owl:Class rdf:ID="Printer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ComputationalEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MeasurementUnit"/>
+  <owl:Class rdf:ID="SpO2">
+    <rdfs:subClassOf rdf:resource="#BiomedicalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <ParameterName rdf:ID="spO2"/>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasParameterName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="CareProvider">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Person"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OutOfRangeParameter">
+    <rdfs:subClassOf rdf:resource="#PhysicalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isOutOfRange"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="GlucoseBloodConcentrationRange">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="ReferenceRangeOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="GlucoseBloodConcentration"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ParameterRange"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="percentile">
+    <rdfs:subClassOf rdf:resource="#MeasurementUnit"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Nurse">
+    <rdfs:subClassOf rdf:resource="#CareProvider"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Alarm"/>
+  <owl:Class rdf:ID="GeneralPractitioner">
+    <rdfs:subClassOf rdf:resource="#CareProvider"/>
+  </owl:Class>
+  <owl:Class rdf:ID="KB_304886_Class_3">
+    <rdfs:subClassOf rdf:resource="#Alarm"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DiastolicBloodPressureRange">
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="DiastolicBloodPressure"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Temperature">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="temperature"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#EnvironmentalParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="WeatherQuality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="EnvironmentalQuality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#DiastolicBloodPressure">
+    <rdfs:subClassOf rdf:resource="#BiomedicalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="diastolicBloodPressure"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="CurrentWeather">
+    <rdfs:subClassOf rdf:resource="#EnvironmentalParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeContext"/>
+  <owl:Class rdf:ID="PhysicalParameterQuality">
+    <rdfs:subClassOf rdf:resource="#Quality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Artwork">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Object"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Entity"/>
+  <owl:Class rdf:ID="BodyTemperature">
+    <rdfs:subClassOf rdf:resource="#BiomedicalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="bodyTemperature"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="PDA">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ComputationalEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SystolicBloodPressure">
+    <rdfs:subClassOf rdf:resource="#BiomedicalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="systolicBloodPressure"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Home">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="IndoorPlace"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RelativeHumidity">
+    <rdfs:subClassOf rdf:resource="#EnvironmentalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="relativeHumidity"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="HealthStatus"/>
+  <owl:Class rdf:about="#Person">
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OutdoorPlace">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Place"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SocialQuality">
+    <rdfs:subClassOf rdf:resource="#Quality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="InstrumentalQuality">
+    <rdfs:subClassOf rdf:resource="#Quality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TemperatureRange">
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Temperature"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="HeartRateFrequencyRange">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="HeartRateFrequency"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Relative">
+    <rdfs:subClassOf rdf:resource="#Person"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Location"/>
+  <owl:Class rdf:about="#ComputationalEntity">
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SystolicBloodPressureRange">
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#SystolicBloodPressureRange"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Place">
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Object">
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GlucoseBloodConcentration">
+    <rdfs:subClassOf rdf:resource="#BiomedicalParameter"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="glucoseBloodConcentration"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#HeartRateFrequency">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasParameterName"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <ParameterName rdf:ID="heartRateFrequency"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#BiomedicalParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient">
+    <rdfs:subClassOf rdf:resource="#Person"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Home"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isLocatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RelativeHumidityRange">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#RelativeHumidity"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IndoorPlace">
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BodyTemperatureRange">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#BodyTemperature"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ParameterName"/>
+  <owl:Class rdf:ID="degreeC">
+    <rdfs:subClassOf rdf:resource="#MeasurementUnit"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentalQuality">
+    <rdfs:subClassOf rdf:resource="#Quality"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SpO2Range">
+    <rdfs:subClassOf rdf:resource="#ParameterRange"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#SpO2"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="LocationQuality">
+    <rdfs:subClassOf rdf:resource="#Quality"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="isCareProviderOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasCareProvider"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#CareProvider"/>
+    <rdfs:range rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMeasurementUnit">
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdfs:range rdf:resource="#MeasurementUnit"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCurrentWeather">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasEnvironmentalData"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#CurrentWeather"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutOfRangeParameter">
+    <rdfs:range rdf:resource="#PhysicalParameter"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#HealthStatus"/>
+          <owl:Class rdf:about="#Alarm"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutOfRangePhysicalParameter">
+    <rdfs:range rdf:resource="#OutOfRangeParameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasEnvironmentalParameter">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasPhysicalParameter"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#EnvironmentalParameter"/>
+    <rdfs:domain rdf:resource="#Place"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasComputationalFacility">
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdfs:range rdf:resource="#ComputationalEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCurrentWeatherQuality">
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdfs:range rdf:resource="#CurrentWeatherQuality"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasEnvironmentalData">
+    <rdfs:range rdf:resource="#EnvironmentalParameter"/>
+    <rdfs:domain rdf:resource="#Location"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="environmentalDataOf"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isMoreRecentThan">
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdfs:range rdf:resource="#Quality"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isBetterThan">
+    <rdfs:range rdf:resource="#Quality"/>
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasPhysicalParameter">
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdfs:range rdf:resource="#PhysicalParameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isCloseTo">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Place"/>
+          <owl:Class rdf:about="#Object"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Entity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReferenceRange">
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:about="#ReferenceRangeOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdfs:range rdf:resource="#ParameterRange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isCloseToArtwork">
+    <rdfs:range rdf:resource="#Artwork"/>
+    <rdfs:subPropertyOf rdf:resource="#isCloseTo"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAlarms">
+    <rdfs:domain rdf:resource="#HealthStatus"/>
+    <rdfs:range rdf:resource="#Alarm"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isPopulatedBy">
+    <rdfs:domain rdf:resource="#Place"/>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="contains">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Object"/>
+          <owl:Class rdf:about="#Place"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Place"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isLocatedIn">
+    <rdfs:range rdf:resource="#Place"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasActivityQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdfs:range rdf:resource="#ActivityQuality"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasQuality">
+    <rdfs:range rdf:resource="#Quality"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutOfRangeObservation"/>
+  <owl:ObjectProperty rdf:ID="hasLocation">
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Location"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasEnvironmentalQuality">
+    <rdfs:range rdf:resource="#EnvironmentalQuality"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasBiomedicalParameter">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#BiomedicalParameter"/>
+    <rdfs:subPropertyOf rdf:resource="#hasPhysicalParameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasHealthStatus">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#HealthStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasCareProvider">
+    <rdfs:range rdf:resource="#CareProvider"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+    <owl:inverseOf rdf:resource="#isCareProviderOf"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasMeasurementResult">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSkyConditions">
+    <rdfs:domain rdf:resource="#CurrentWeather"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaxTempAlarmLevel">
+    <rdfs:domain rdf:resource="#HealthStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+              >2</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                  >4</rdf:first>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >3</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >0</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasRole">
+    <rdfs:domain rdf:resource="#CareProvider"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTempAlarmLevel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasActivity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasOutRangeLevel">
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasAlarmCode">
+    <rdfs:domain rdf:resource="#Alarm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCurrentTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#TimeContext"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasStreet">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTempAlarmCode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasLineage">
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasRFIDCode">
+    <rdfs:domain rdf:resource="#PhysicaLocationData"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasReliability">
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCity">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPrecision">
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasAcquisitionTime">
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasRangeID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#ParameterRange"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="distanceTimefromPatient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >200</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+              >300</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >100</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Relative"/>
+  </owl:DatatypeProperty>
+  <owl:SymmetricProperty rdf:ID="hasSocialMember">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#Person"/>
+    <owl:inverseOf rdf:resource="#hasSocialMember"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:about="#hasParameterName">
+    <rdfs:range rdf:resource="#ParameterName"/>
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasValidity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Quality"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAvailability">
+    <rdfs:domain rdf:resource="#CareProvider"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >busy</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >notAvailable</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >available</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLongitude">
+    <rdfs:domain rdf:resource="#PhysicaLocationData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasRelativeHumidity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#CurrentWeather"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#ReferenceRangeOf">
+    <rdfs:domain rdf:resource="#ParameterRange"/>
+    <owl:inverseOf rdf:resource="#hasReferenceRange"/>
+    <rdfs:range rdf:resource="#PhysicalParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLatitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PhysicaLocationData"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLocationQuality">
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdfs:range rdf:resource="#LocationQuality"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStreetNumber">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isOutOfRange">
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUpperValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ParameterRange"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxTempAlarmCode">
+    <rdfs:domain rdf:resource="#HealthStatus"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >verificare se tenerlo o no</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLowerValue">
+    <rdfs:domain rdf:resource="#ParameterRange"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPhysicalLocationData">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#PhysicaLocationData"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSocialQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Person"/>
+          <owl:Class rdf:about="#Place"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#SocialQuality"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPhysicalParameterQuality">
+    <rdfs:range rdf:resource="#PhysicalParameterQuality"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasInstrumentalQuality">
+    <rdfs:range rdf:resource="#InstrumentalQuality"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Entity"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPoCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Location"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSource">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAccuracy">
+    <rdfs:domain rdf:resource="#Quality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTemperature">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#CurrentWeather"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAltitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PhysicaLocationData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasVisibility">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#CurrentWeather"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAlarmLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Alarm"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasName">
+    <rdfs:domain rdf:resource="#PhysicalParameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCountry">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isRelativeOf">
+    <rdfs:range rdf:resource="#Patient"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasRelative"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Relative"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasWindSpeed">
+    <rdfs:domain rdf:resource="#CurrentWeather"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#environmentalDataOf">
+    <owl:inverseOf rdf:resource="#hasEnvironmentalData"/>
+    <rdfs:domain rdf:resource="#EnvironmentalParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Location"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasRelative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isRelativeOf"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#Relative"/>
+  </owl:InverseFunctionalProperty>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >sms</rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >mail</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >3</rdf:first>
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </rdf:rest>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+      >1</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+      >1</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >3</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >4</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+        </rdf:rest>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >SpO2</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GlucoseBloodConcentration</rdf:first>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >mail</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >webAlert</rdf:first>
+        </rdf:rest>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >sms</rdf:first>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->
